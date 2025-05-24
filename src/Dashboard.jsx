@@ -39,7 +39,7 @@ const Dashboard = () => {
         <div className="cover-container">
           <div className="cover"></div>
           <div
-            className={`profilephoto ${getGenderClass(user.userDetails.gender)}`}
+            className={`profilephoto ${getGenderClass(user.details.gender)}`}
           >
             {user.details.profilepic ? (
               <img
