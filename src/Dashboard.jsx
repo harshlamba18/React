@@ -4,7 +4,6 @@ import "./Login.css";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
 import "./Dashboard.css";
-
 const Dashboard = () => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
@@ -23,14 +22,15 @@ const Dashboard = () => {
     toast.success("Logged out successfully");
     navigate("/login");
   };
-  const setbackgroundImage = (image) => {
-    if (image !== "") {
-      return;
-    } else if (user.details.gender === "Male") {
-      return "url(/images/male.png)";
-    } else if (user.details.gender === "Female") {
-      return "url(/images/female.png)";
-    } else return;
+  const getGenderClass = (gender) => {
+    switch (gender) {
+      case "Male":
+        return "male";
+      case "Female":
+        return "female";
+      default:
+        return "";
+    }
   };
 
   return user ? (
@@ -39,10 +39,7 @@ const Dashboard = () => {
         <div className="cover-container">
           <div className="cover"></div>
           <div
-            class="profilephoto"
-            style={{
-              backgroundImage: setbackgroundImage(user.details.profilepic),
-            }}
+            className={`profilephoto ${getGenderClass(user.userDetails.gender)}`}
           >
             {user.details.profilepic ? (
               <img
