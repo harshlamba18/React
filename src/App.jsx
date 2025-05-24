@@ -14,11 +14,13 @@ const allRoutes = createBrowserRouter(
     { path: "/signup", element: <SignUp /> },
     { path: "/dashboard", element: <Dashboard /> },
     { path: "/editprofile", element: <EditProfile /> },
+    { path: "*", element: <Login /> }, // wildcard fallback
   ],
   {
-    basename: "/React" 
+    basename: "/React", // keep this since you're deploying at /React
   }
 );
+
 
 
 function App() {
