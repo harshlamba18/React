@@ -15,7 +15,11 @@ const allRoutes = createBrowserRouter(
     { path: "/dashboard", element: <Dashboard /> },
     { path: "/editprofile", element: <EditProfile /> },
   ],
+  {
+    basename: "/React" 
+  }
 );
+
 
 function App() {
   return (
